@@ -12,7 +12,7 @@ def is_safe_with_one_removal(report):
     if is_safe(report):
         return True
     for i in range(len(report)):
-        modified_report = report[:i] + report[i + 1:]  # Remove one level
+        modified_report = report[:i] + report[i + 1:]
         if is_safe(modified_report):
             return True
     return False
