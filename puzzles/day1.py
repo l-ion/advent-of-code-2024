@@ -1,4 +1,4 @@
-def solvePart1(input_file):
+def solve_part1(input_file):
     with open(input_file, 'r') as f:
         data = [line.strip() for line in f.readlines()]
     left_numbers = []
@@ -14,7 +14,7 @@ def solvePart1(input_file):
         result += abs(a-b)
     return result
 
-def solvePart2(input_file):
+def solve_part2(input_file):
     with open(input_file, 'r') as f:
         data = [line.strip() for line in f.readlines()]
     left_numbers = []
@@ -36,6 +36,6 @@ def solvePart2(input_file):
 if __name__ == "__main__":
     day = "day1"  # Change this for each day
     input_file = f'../input/{day}.txt'
-    print(f"{day.capitalize()} part 1 solution:", solvePart1(input_file))
-    print(f"{day.capitalize()} part 2 Solution:", solvePart2(input_file))
+    print(f"{day.capitalize()} part 1 solution:", solve_part1(input_file))
+    print(f"{day.capitalize()} part 2 solution:", solve_part2(input_file))
 
