@@ -1,22 +1,24 @@
-def solve_part1(input_file):
-    with open(input_file, 'r') as file:
-        for line in file:
-            input = list(map(int, line.split()))
-    return 0
+import re
 
+input_file = f'../input/day3.txt'
+data = open(input_file, 'r').read()
 
-def solve_part2(input_file):
-    with open(input_file, 'r') as file:
-        for line in file:
-            input = list(map(int, line.split()))
-    return 0
+result = 0
+resultWithFlags = 0
+enabled = True
+
+regex = r"mul\((\d+),(\d+)\)|(do\(\))|(don't\(\))"
+
+matches = re.findall(regex, data)
+
+for a, b, do, donot in matches:
+    if do or donot:
+        enabled = bool(do)
+    else:
+        multiply = int(a) * int(b)
+        result += multiply
+        resultWithFlags += multiply * enabled
 
 if __name__ == "__main__":
-    day = "day3"  # Change this for each day
-    input_file = f'../input/{day}.txt'
-    print(f"{day.capitalize()} part 1 solution:", solve_part1(input_file))
-    print(f"{day.capitalize()} part 2 solution:", solve_part2(input_file))
-
-
-
-
+    print(f"Part1: {result}")
+    print(f"Part2: {resultWithFlags}")
